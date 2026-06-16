@@ -1,0 +1,46 @@
+/* index.css */
+:root {
+  --sb-dark-green: #006241;
+  --sb-light-green: #d4e9e2;
+  --sb-gold: #cba258;
+  --sb-text-black: #212121;
+  --sb-bg-gray: #f2f0eb;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--sb-text-black);
+  background-color: #ffffff;
+  scroll-behavior: smooth; /* 부드러운 스크롤 이동 */
+}
+
+/* 스타벅스 스타일 버튼 */
+.sb-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid var(--sb-text-black);
+  border-radius: 50px;
+  color: var(--sb-text-black);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+}
+
+.sb-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sb-btn-dark {
+  background-color: var(--sb-dark-green);
+  color: white;
+  border-color: var(--sb-dark-green);
+}
+
+.sb-btn-dark:hover {
+  background-color: #004d32;
+  color: white;
+}
