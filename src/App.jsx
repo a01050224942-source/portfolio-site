@@ -1,4 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import planeImg from "./assets/plane.png";
+import codeWindowImg from "./assets/Untitled (1).png";
+import project1Img from "./assets/pj1.png";
+import project2Img from "./assets/pj2.png";
+import mailboxImg from "./assets/pngegg (1).png";
+import resumePdf from "./assets/resume.pdf";
 import axios from 'axios';
 import { FaGithub, FaInstagram, FaBlog, FaEnvelope, FaPhone, FaLock, FaTrashAlt } from 'react-icons/fa';
 // ⭐ GSAP 및 관련 플러그인/훅 임포트
@@ -360,7 +366,7 @@ function App() {
       }}>
         <img
           ref={planeRef}
-          src="/plane.png"
+          src={planeImg}
           alt="Paper Plane"
           style={{
             width: '220px',
@@ -414,7 +420,7 @@ function App() {
             <a href="https://github.com" target="_blank" rel="noreferrer" style={btnStyle}>GitHub</a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer" style={btnStyle}>Instagram</a>
             <a 
-  href="/resume.pdf" 
+  href={resumePdf} 
   download="정가은_이력서.pdf"
   style={btnDarkStyle}
 >
@@ -444,7 +450,7 @@ function App() {
             minWidth: '290px' // 💡 화면이 극단적으로 작아져도 깨지지 않는 마지노선
           }}>
             <img 
-              src="/Untitled (1).png" 
+              src={codeWindowImg}
               alt="Code Window Frame" 
               style={{ 
                 width: '100%', 
@@ -552,7 +558,7 @@ function App() {
             style={{ flex: 1.2, display: 'flex', overflow: 'hidden', cursor: 'pointer' }}
           >
             <img 
-              src="/pj1.png" // 👈 public 폴더에 저장한 파일명과 정확히 매칭!
+              src={project1Img} // 👈 public 폴더에 저장한 파일명과 정확히 매칭!
               alt="ArtLens Thumbnail" 
               style={{ 
                 width: '100%', 
@@ -585,7 +591,7 @@ function App() {
             style={{ flex: 1.2, display: 'flex', overflow: 'hidden', cursor: 'pointer' }}
           >
             <img 
-              src="/pj2.png" // 👈 public 폴더에 저장한 파일명과 정확히 매칭!
+              src={project2Img} // 👈 public 폴더에 저장한 파일명과 정확히 매칭!
               alt="Web Assignment Thumbnail" 
               style={{ 
                 width: '100%', 
@@ -641,7 +647,7 @@ function App() {
           </div>
 
           <div className={isEating ? 'mailbox-eating-active' : ''} style={{ flex: 0.8, display: 'flex', justifyContent: 'center', alignItems: 'center', transition: 'transform 0.3s' }}>
-            <img src="/pngegg (1).png" alt="Mailbox" style={{ width: '280px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.15))' }} />
+            <img src={mailboxImg} alt="Mailbox" style={{ width: '280px', height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.15))' }} />
           </div>
         </div>
       </section>
