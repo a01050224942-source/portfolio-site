@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 export default function TypingTitle({ theme }) {
-  // 🟢 [수정 1] "정가은입니다"를 제외하고, 앞에 바뀔 타이틀 키워드들만 배열로 관리해!
   const words = [
     "열정을 다하는 개발자",
     "혁신을 사랑하는 개발자",
@@ -37,7 +36,7 @@ export default function TypingTitle({ theme }) {
   }, [currentText, isDeleting, currentWordIndex]); 
 
   return (
-    // 🟢 [수정 2] 타이핑되는 글자와 커서 뒤에 고정될 ", 정가은입니다."를 한 구조 안에 묶어줍니다!
+
     <div style={{ display: 'inline-flex', flexDirection: 'column', width: '100%' }}>
       
       {/* 첫 번째 줄: 타이핑되는 가변 문장 영역 */}
@@ -53,7 +52,7 @@ export default function TypingTitle({ theme }) {
         }}></span>
       </div>
 
-      {/* 두 번째 줄: 언제나 가만히 고정되어 있을 가은이 이름표 */}
+      {/* 두 번째 줄*/}
       <div style={{ color: theme.textBlack, marginTop: '8px' }}>
         정가은입니다.
       </div>

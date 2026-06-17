@@ -7,13 +7,13 @@ import mailboxImg from "./assets/pngegg (1).png";
 import resumePdf from "./assets/resume.pdf";
 import axios from 'axios';
 import { FaGithub, FaInstagram, FaBlog, FaEnvelope, FaPhone, FaLock, FaTrashAlt } from 'react-icons/fa';
-// ⭐ GSAP 및 관련 플러그인/훅 임포트
+//GSAP 및 관련 플러그인/훅 임포트
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import TypingTitle from './TypingTitle';
 
-// ⭐ ScrollTrigger 등록
+// ScrollTrigger 등록
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
   const [isFlying, setIsFlying] = useState(false);
   const [isEating, setIsEating] = useState(false);
 
-  // 🔮 최근 메시지 탭 기본 접힘 상태 (기본값: false - 접힘 상태 🔒)
+  // 🔮 최근 메시지 탭 기본 접힘 상태 (기본값: false - 접힘 상태)
   const [isListOpen, setIsListOpen] = useState(false);
 
   // 🔑 관리자 스펙 확장 상태 변수
@@ -50,13 +50,13 @@ function App() {
 
   const rippleContainerRef = useRef(null);
 
-  // ⭐ 종이비행기 애니메이션을 위한 Ref
+  // 종이비행기 애니메이션을 위한 Ref
   const mainContainerRef = useRef(null);
   const planeRef = useRef(null);
 
 
 
-  // ⭐ useGSAP 훅을 사용하여 스크롤 및 이미지 비율에 따른 비행 궤적 완벽 매칭
+  // useGSAP 훅을 사용하여 스크롤 및 이미지 비율에 따른 비행 궤적 완벽 매칭
   useGSAP(() => {
     ScrollTrigger.getAll().forEach(t => t.kill());
 
@@ -68,10 +68,10 @@ function App() {
       x: '-250px',
       y: '-180px',
       rotation: 35,
-      scale: 0.6, // 스크롤 시 컴포넌트 여백 안에 쏙 들어가도록 스케일 0.6으로 최적화
+      scale: 0.6,
     });
 
-    // 🟢 1단계: 페이지 첫 로드 시 부드러운 인트로 진입
+    // 1단계: 페이지 첫 로드 시 부드러운 인트로 진입
     gsap.to(planeRef.current, {
       x: '30vw',
       y: '-8vh',
@@ -81,7 +81,7 @@ function App() {
       ease: 'power2.out',
       delay: 0.2,
 
-      // 🟢 인트로 완료 후 타임라인 기반 스크롤 궤적 연결
+      // 인트로 완료 후 타임라인 기반 스크롤 궤적 연결
       onComplete: () => {
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -110,7 +110,7 @@ function App() {
         });
 
         tl
-          // ① HOME → ABOUT ME: My Journey 타이틀 시작 지점 동그라미 여백 안착
+          // ① HOME → ABOUT ME
           .to(planeRef.current, {
             x: '12vw', 
             y: '-5vh',
@@ -120,12 +120,7 @@ function App() {
             ease: 'power1.inOut',
           })
         
-
-
-
-
-
-          // ② ABOUT ME → PROJECTS: ArtLens 카드 내부 타이틀 및 태그 옆 흰색 여백 정밀 착륙
+          // ② ABOUT ME → PROJECTS
           .to(planeRef.current, {
             x: '50vw', 
             y: '-15vh',
@@ -135,8 +130,7 @@ function App() {
             ease: 'power1.inOut'
           })
 
-
-          // ③ PROJECTS → CONTACT: Send a Message 폼 상단 헤더 우측 여백에 최종 안착!
+          // ③ PROJECTS → CONTACT
           .to(planeRef.current, {
             x: '110vw', 
             y: '-20vh',
@@ -356,7 +350,7 @@ function App() {
     <div ref={mainContainerRef} style={{ color: theme.textBlack, overflowX: 'hidden' }}>
       <div ref={rippleContainerRef} style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 99999, overflow: 'hidden' }}></div>
 
-      {/* ✈️ 화면에 고정되어 날아다닐 종이비행기 레이어 */}
+      {/* 화면에 고정되어 날아다닐 종이비행기 레이어 */}
       <div style={{ 
         position: 'relative', 
         width: '100%', 
@@ -399,14 +393,14 @@ function App() {
       {/* [Section 1] HOME */}
       <section ref={homeRef} style={{ marginTop: '100px', minHeight: 'calc(100vh - 100px)', display: 'flex', alignItems: 'center', backgroundColor: theme.lavenderLight, padding: '40px 15%', boxSizing: 'border-box' }}>
         <div style={{ flex: 1, paddingRight: '20px' }}>
-          {/* 🟢 라이브러리 충돌 없는 무결점 타이핑 컴포넌트 매칭 완료 */}
+          {/* 라이브러리 충돌 없는 무결점 타이핑 컴포넌트 매칭 완료 */}
           <div style={{ 
             fontSize: '42px', 
             color: theme.purpleMain, 
             margin: '0 0 20px 0', 
             lineHeight: '1.4',
             fontWeight: 'bold',
-            minHeight: '120px', // 글자 지워졌을 때 버튼 출렁임 방지 구조 유지
+            minHeight: '120px',
             display: 'flex',
             alignItems: 'center'
           }}>
@@ -429,14 +423,14 @@ function App() {
           </div>
         </div>
 
-        {/* 🔮 오른쪽 반응형 IDE 컴포넌트 구역 (가은이 오리지널 폰트 & 컬러 100% 보존) */}
+        {/* 오른쪽 반응형 IDE 컴포넌트 구역 */}
         <div style={{ 
           flex: 1.2, 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
           position: 'relative', 
-          paddingLeft: '5%', // 💡 고정 px 대신 % 단위를 주어 화면 크기에 유연하게 대응
+          paddingLeft: '5%',
           width: '100%',
           boxSizing: 'border-box'
         }}>
@@ -447,7 +441,7 @@ function App() {
             overflow: 'hidden', 
             backgroundColor: 'transparent', 
             position: 'relative',
-            minWidth: '290px' // 💡 화면이 극단적으로 작아져도 깨지지 않는 마지노선
+            minWidth: '290px'
           }}>
             <img 
               src={codeWindowImg}
@@ -464,20 +458,20 @@ function App() {
             <pre style={{ 
               fontFamily: '"Pretendard Variable", Pretendard, Inter, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif', // 👈 가은이의 고딕 폰트 그대로 유지!
               position: 'absolute', 
-              top: '12%',       // 💡 액자 이미지 비율에 맞춰 상단 여백 유동형 조절
+              top: '12%',       
               left: '0', 
               width: '100%', 
               height: '88%', 
               margin: 0, 
-              padding: '6% 8%', // 💡 안쪽 패딩도 %로 유연하게 스케일링하여 삐져나옴 방지
+              padding: '6% 8%', 
               
-              // 🟢 [반응형 폰트 수식] 화면 배율/크기에 따라 11px~14px 사이로 자동 줄어들고 커지는 반응형 핏!
+            
               fontSize: 'clamp(11px, 1.1vw, 14px)', 
               
               lineHeight: '1.8', 
               textAlign: 'left', 
               boxSizing: 'border-box', 
-              overflow: 'hidden', // 💡 우측/하단 스크롤바 강제 튀어나옴 완벽 방지
+              overflow: 'hidden', 
               pointerEvents: 'none' 
             }}>
               <div><span style={{ color: '#E91E63', fontWeight: 'bold' }}>const</span> <span style={{ color: '#39a518' }}>developer</span> = &#123;</div>
@@ -522,7 +516,6 @@ function App() {
         {/* Frontend 기술 카드 */}
         <div style={{ backgroundColor: theme.bgGray, padding: '20px', borderRadius: '12px', marginBottom: '15px', border: '1px solid #dccbe3' }}>
           <strong style={{ color: theme.purpleMain }}>Frontend</strong>
-          {/* 🟢 [수정 완료] 기존 텍스트들을 HighlightText 컴포넌트로 쏙쏙 변경했습니다! */}
           <p style={{ margin: '5px 0 0 0', color: '#555', lineHeight: '1.8' }}>
             <HighlightText text="React, JavaScript, Next.js, Figma" theme={theme} />{' '}
           </p>
@@ -531,7 +524,6 @@ function App() {
         {/* Backend 기술 카드 */}
         <div style={{ backgroundColor: theme.bgGray, padding: '20px', borderRadius: '12px', border: '1px solid #dccbe3' }}>
           <strong style={{ color: theme.purpleMain }}>Backend</strong>
-          {/* 🟢 [수정 완료] 기존 텍스트들을 HighlightText 컴포넌트로 쏙쏙 변경했습니다! */}
           <p style={{ margin: '5px 0 0 0', color: '#555', lineHeight: '1.8' }}>
             <HighlightText text="Java, Spring Boot, MySQL" theme={theme} />{' '}
           </p>
@@ -550,22 +542,21 @@ function App() {
         {/* --- [Card 1] ArtLens 팀 프로젝트 --- */}
         <div ref={proj1Ref} style={{ ...contentAnimationStyle(showProj1), display: 'flex', backgroundColor: '#ffffff', borderRadius: '16px', overflow: 'hidden', marginTop: '40px', marginBottom: '30px', boxShadow: '0 4px 15px rgba(123, 92, 170, 0.05)' }}>
           
-          {/* 📸 ArtLens 썸네일 영역 (클릭 시 실시간 사이트나 GitHub로 이동) */}
           <a 
-            href="https://artslens.vercel.app" // 👈 배포된 ArtLens 주소나 GitHub 주소를 여기에 넣으세요!
+            href="https://artslens.vercel.app"
             target="_blank" 
             rel="noreferrer"
             style={{ flex: 1.2, display: 'flex', overflow: 'hidden', cursor: 'pointer' }}
           >
             <img 
-              src={project1Img} // 👈 public 폴더에 저장한 파일명과 정확히 매칭!
+              src={project1Img} 
               alt="ArtLens Thumbnail" 
               style={{ 
                 width: '100%', 
                 height: '100%', 
                 objectFit: 'cover', 
                 minHeight: '220px',
-                transition: 'transform 0.3s ease' // 마우스 올렸을 때 부드러운 확대 효과
+                transition: 'transform 0.3s ease'
               }} 
               onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -583,15 +574,14 @@ function App() {
         {/* --- [Card 2] 웹 프로그래밍 과제 프로젝트 --- */}
         <div ref={proj2Ref} style={{ ...contentAnimationStyle(showProj2), display: 'flex', backgroundColor: '#ffffff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(123, 92, 170, 0.05)' }}>
           
-          {/* 📸 웹 과제 썸네일 영역 (클릭 시 GitHub로 이동) */}
           <a 
-            href="https://github.com" // 👈 과제 저장소 GitHub 주소를 여기에 넣으세요!
+            href="https://github.com" 
             target="_blank" 
             rel="noreferrer"
             style={{ flex: 1.2, display: 'flex', overflow: 'hidden', cursor: 'pointer' }}
           >
             <img 
-              src={project2Img} // 👈 public 폴더에 저장한 파일명과 정확히 매칭!
+              src={project2Img} 
               alt="Web Assignment Thumbnail" 
               style={{ 
                 width: '100%', 

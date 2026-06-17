@@ -3,7 +3,7 @@ name: Deploy Portfolio Site to GitHub Pages
 on:
   push:
     branches:
-      - main # 💡 main 브랜치에 코드가 push(업로드)될 때마다 자동으로 배포 기차가 작동해!
+      - main #
 
 permissions:
   contents: read
@@ -27,19 +27,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # 💡 안정적인 노드 버전 세팅
+          node-version: 20 # 
           cache: 'npm'
 
       - name: Install Dependencies
-        run: npm ci # 💡 패키지 깔끔하게 무결점 설치
+        run: npm ci # 
 
       - name: Build Project
-        run: npm run build # 💡 배포용으로 컴파일 리포트 빌드
+        run: npm run build 
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite가 빌드해낸 결과물 폴더 위치
+          path: './dist' 
 
       - name: Deploy to GitHub Pages
         id: deployment
