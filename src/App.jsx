@@ -26,14 +26,14 @@ function App() {
   const [showProj1, setShowProj1] = useState(false);
   const [showProj2, setShowProj2] = useState(false);
 
-  // 📬 편지 날아가기 및 우체통 꿀꺽 애니메이션 트리거 상태
+  // 편지 날아가기 및 우체통 꿀꺽 애니메이션 트리거 상태
   const [isFlying, setIsFlying] = useState(false);
   const [isEating, setIsEating] = useState(false);
 
-  // 🔮 최근 메시지 탭 기본 접힘 상태 (기본값: false - 접힘 상태)
+  // 최근 메시지 탭 기본 접힘 상태 (기본값: false - 접힘 상태)
   const [isListOpen, setIsListOpen] = useState(false);
 
-  // 🔑 관리자 스펙 확장 상태 변수
+  // 관리자 스펙 확장 상태 변수
   const [isAdminMode, setIsAdminMode] = useState(false); 
   const [adminPassword, setAdminPassword] = useState(''); 
   const [showAdminLogin, setShowAdminLogin] = useState(false); 
@@ -743,3 +743,4 @@ const HighlightText = ({ text, theme }) => {
 };
 
 export default App;
+
